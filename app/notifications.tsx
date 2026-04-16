@@ -1,0 +1,87 @@
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { router } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { CheckIcon, BellIcon, StarIcon } from '../components/icons';
+
+export default function NotificationsScreen() {
+  return (
+    <View className="flex-1 bg-app-bg">
+      <StatusBar style="dark" />
+
+      <View style={{ height: 44, justifyContent: 'center', paddingHorizontal: 24 }}>
+        <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 12, color: '#111827' }}>9:41</Text>
+      </View>
+
+      <View style={{ paddingHorizontal: 24, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Text style={{ fontFamily: 'DMSans_700Bold', fontSize: 24, color: '#111827' }}>Notifications</Text>
+        <TouchableOpacity>
+          <Text style={{ fontFamily: 'DMSans_500Medium', fontSize: 13, color: '#6B7280' }}>Clear all</Text>
+        </TouchableOpacity>
+      </View>
+
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 16 }}>
+
+        <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: '#6B7280', marginBottom: 8 }}>New</Text>
+
+        {/* Featured notification */}
+        <TouchableOpacity
+          onPress={() => router.replace('/(tabs)')}
+          style={{ backgroundColor: '#002920', borderRadius: 16, padding: 16, marginBottom: 10, flexDirection: 'row', alignItems: 'flex-start', gap: 12 }}
+          activeOpacity={0.85}
+        >
+          <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: '#22C55E', marginTop: 3, flexShrink: 0 }} />
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 14, color: '#fff', marginBottom: 3 }}>Your next step is ready</Text>
+            <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 20 }}>
+              Day 3 lesson and challenge are waiting for you. It takes just 5 minutes.
+            </Text>
+            <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>Just now</Text>
+          </View>
+        </TouchableOpacity>
+
+        {/* Streak milestone */}
+        <TouchableOpacity
+          onPress={() => router.push('/complete')}
+          style={{ backgroundColor: '#fff', borderRadius: 14, padding: 14, paddingHorizontal: 16, marginBottom: 8, flexDirection: 'row', alignItems: 'flex-start', gap: 12, borderWidth: 0.5, borderColor: '#E5E7EB' }}
+          activeOpacity={0.85}
+        >
+          <View style={{ width: 36, height: 36, borderRadius: 12, backgroundColor: '#DCFCE7', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <CheckIcon color="#16A34A" size={18} />
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontFamily: 'DMSans_500Medium', fontSize: 14, color: '#111827' }}>Streak milestone unlocked</Text>
+            <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 12, color: '#6B7280', marginTop: 2, lineHeight: 18 }}>You completed your 3rd day in a row. Keep going!</Text>
+            <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 11, color: '#9CA3AF', marginTop: 3 }}>2 hours ago</Text>
+          </View>
+        </TouchableOpacity>
+
+        <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: '#6B7280', marginBottom: 8, marginTop: 12 }}>Earlier</Text>
+
+        {/* Don't break streak */}
+        <View style={{ backgroundColor: '#fff', borderRadius: 14, padding: 14, paddingHorizontal: 16, marginBottom: 8, flexDirection: 'row', alignItems: 'flex-start', gap: 12, borderWidth: 0.5, borderColor: '#E5E7EB' }}>
+          <View style={{ width: 36, height: 36, borderRadius: 12, backgroundColor: '#EAF5F0', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <BellIcon color="#002920" size={18} />
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontFamily: 'DMSans_500Medium', fontSize: 14, color: '#111827' }}>Don't break your streak</Text>
+            <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 12, color: '#6B7280', marginTop: 2, lineHeight: 18 }}>Your daily lesson is waiting. Only 5 minutes needed.</Text>
+            <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 11, color: '#9CA3AF', marginTop: 3 }}>Yesterday · 8:00 AM</Text>
+          </View>
+        </View>
+
+        {/* Week completed */}
+        <View style={{ backgroundColor: '#fff', borderRadius: 14, padding: 14, paddingHorizontal: 16, marginBottom: 8, flexDirection: 'row', alignItems: 'flex-start', gap: 12, borderWidth: 0.5, borderColor: '#E5E7EB', opacity: 0.7 }}>
+          <View style={{ width: 36, height: 36, borderRadius: 12, backgroundColor: '#F3F4F6', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <StarIcon color="#6B7280" size={18} />
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontFamily: 'DMSans_500Medium', fontSize: 14, color: '#6B7280' }}>Week 1 completed</Text>
+            <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 12, color: '#9CA3AF', marginTop: 2, lineHeight: 18 }}>Great work finishing your first week on TrueNorth.</Text>
+            <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 11, color: '#9CA3AF', marginTop: 3 }}>Mar 24</Text>
+          </View>
+        </View>
+
+      </ScrollView>
+    </View>
+  );
+}
