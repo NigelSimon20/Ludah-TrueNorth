@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { CompassIcon } from '../components/icons';
 
 export default function SplashScreen() {
@@ -11,7 +12,7 @@ export default function SplashScreen() {
   }, []);
 
   return (
-    <View className="flex-1 bg-primary items-center justify-center">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#002920', alignItems: 'center', justifyContent: 'center' }}>
       <StatusBar style="light" />
 
       {/* Decorative rings */}
@@ -30,6 +31,6 @@ export default function SplashScreen() {
       </View>
 
       <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: 'rgba(255,255,255,0.3)', marginTop: 64 }} />
-    </View>
+    </SafeAreaView>
   );
 }

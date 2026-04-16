@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { BackIcon, ClockIcon, StarIcon, GrowthIcon } from '../../components/icons';
 
 const features = [
@@ -11,11 +12,11 @@ const features = [
 
 export default function Step2() {
   return (
-    <View className="flex-1 bg-white">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <StatusBar style="dark" />
 
       {/* Header */}
-      <View style={{ paddingHorizontal: 24, paddingTop: 48 }}>
+      <View style={{ paddingHorizontal: 24, paddingTop: 12 }}>
         <View style={{ flexDirection: 'row', gap: 4, marginBottom: 20 }}>
           {[true, true, false, false].map((done, i) => (
             <View key={i} style={{ flex: 1, height: 3, borderRadius: 2, backgroundColor: done ? '#002920' : '#E5E7EB' }} />
@@ -65,6 +66,6 @@ export default function Step2() {
           <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 15, color: '#fff' }}>This is what I need →</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

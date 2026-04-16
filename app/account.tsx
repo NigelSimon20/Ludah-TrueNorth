@@ -1,18 +1,16 @@
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { BackIcon, CheckIcon } from '../components/icons';
 
 export default function AccountScreen() {
   return (
-    <View className="flex-1 bg-white">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <StatusBar style="dark" />
 
       {/* Header */}
-      <View style={{ paddingHorizontal: 24, paddingTop: 48 }}>
-        <View style={{ height: 44, justifyContent: 'center' }}>
-          <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 12, color: '#111827' }}>9:41</Text>
-        </View>
+      <View style={{ paddingHorizontal: 24, paddingTop: 12 }}>
         <TouchableOpacity
           onPress={() => router.back()}
           style={{ width: 40, height: 40, borderRadius: 12, borderWidth: 1, borderColor: '#E5E7EB', alignItems: 'center', justifyContent: 'center' }}
@@ -73,6 +71,6 @@ export default function AccountScreen() {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

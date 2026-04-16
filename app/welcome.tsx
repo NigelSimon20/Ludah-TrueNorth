@@ -1,10 +1,11 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function WelcomeScreen() {
   return (
-    <View className="flex-1 bg-primary overflow-hidden">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#002920', overflow: 'hidden' }}>
       <StatusBar style="light" />
 
       {/* Decorative rings */}
@@ -61,6 +62,6 @@ export default function WelcomeScreen() {
           <Text style={{ fontFamily: 'DMSans_600SemiBold', color: 'rgba(255,255,255,0.75)' }}>Sign in</Text>
         </Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

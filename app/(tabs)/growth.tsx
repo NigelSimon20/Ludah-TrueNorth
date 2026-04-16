@@ -1,17 +1,14 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function GrowthScreen() {
   return (
-    <View className="flex-1 bg-app-bg">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F7F9F8' }} edges={['top', 'left', 'right']}>
       <StatusBar style="dark" />
 
-      <View style={{ height: 44, justifyContent: 'center', paddingHorizontal: 24 }}>
-        <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 12, color: '#111827' }}>9:41</Text>
-      </View>
-
-      <View style={{ paddingHorizontal: 24, paddingBottom: 16 }}>
+      <View style={{ paddingHorizontal: 24, paddingTop: 16, paddingBottom: 16 }}>
         <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: '#6B7280', marginBottom: 4 }}>Your Journey</Text>
         <Text style={{ fontFamily: 'DMSans_700Bold', fontSize: 24, color: '#111827' }}>Growth Paths</Text>
       </View>
@@ -98,6 +95,6 @@ export default function GrowthScreen() {
         </TouchableOpacity>
 
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

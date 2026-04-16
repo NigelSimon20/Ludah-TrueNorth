@@ -1,17 +1,14 @@
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ProfileScreen() {
   return (
-    <View className="flex-1 bg-app-bg">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F7F9F8' }} edges={['top', 'left', 'right']}>
       <StatusBar style="dark" />
 
-      <View style={{ height: 44, justifyContent: 'center', paddingHorizontal: 24 }}>
-        <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 12, color: '#111827' }}>9:41</Text>
-      </View>
-
       {/* Profile header */}
-      <View style={{ paddingHorizontal: 24, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+      <View style={{ paddingHorizontal: 24, paddingTop: 16, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
         <View style={{ width: 64, height: 64, borderRadius: 20, backgroundColor: '#002920', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 24, color: '#fff' }}>T</Text>
         </View>
@@ -98,6 +95,6 @@ export default function ProfileScreen() {
         </View>
 
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

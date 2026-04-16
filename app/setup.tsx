@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { CheckIcon, BellIcon } from '../components/icons';
 
 const setupCards = [
@@ -11,13 +12,8 @@ const setupCards = [
 
 export default function SetupScreen() {
   return (
-    <View className="flex-1 bg-primary">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#002920' }}>
       <StatusBar style="light" />
-
-      {/* Status bar */}
-      <View style={{ height: 48, justifyContent: 'center', paddingHorizontal: 24 }}>
-        <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 12, color: 'rgba(255,255,255,0.9)' }}>9:41</Text>
-      </View>
 
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingHorizontal: 24 }} showsVerticalScrollIndicator={false}>
         {/* Title */}
@@ -67,6 +63,6 @@ export default function SetupScreen() {
           <Text style={{ fontFamily: 'DMSans_700Bold', fontSize: 15, color: '#002920' }}>Let's Begin →</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

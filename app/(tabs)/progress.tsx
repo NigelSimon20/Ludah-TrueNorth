@@ -1,5 +1,6 @@
 import { View, Text, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { LockIcon } from '../../components/icons';
 
 // Activity grid data – 3 rows × 7 cols
@@ -19,14 +20,10 @@ const activityColors: Record<string, string> = {
 
 export default function ProgressScreen() {
   return (
-    <View className="flex-1 bg-app-bg">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F7F9F8' }} edges={['top', 'left', 'right']}>
       <StatusBar style="dark" />
 
-      <View style={{ height: 44, justifyContent: 'center', paddingHorizontal: 24 }}>
-        <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 12, color: '#111827' }}>9:41</Text>
-      </View>
-
-      <View style={{ paddingHorizontal: 24, paddingBottom: 16 }}>
+      <View style={{ paddingHorizontal: 24, paddingTop: 16, paddingBottom: 16 }}>
         <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: '#6B7280', marginBottom: 4 }}>Your Progress</Text>
         <Text style={{ fontFamily: 'DMSans_700Bold', fontSize: 24, color: '#111827' }}>How you're doing</Text>
       </View>
@@ -108,6 +105,6 @@ export default function ProgressScreen() {
         </View>
 
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

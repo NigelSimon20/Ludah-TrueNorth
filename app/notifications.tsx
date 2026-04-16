@@ -1,18 +1,15 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { CheckIcon, BellIcon, StarIcon } from '../components/icons';
 
 export default function NotificationsScreen() {
   return (
-    <View className="flex-1 bg-app-bg">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F7F9F8' }}>
       <StatusBar style="dark" />
 
-      <View style={{ height: 44, justifyContent: 'center', paddingHorizontal: 24 }}>
-        <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 12, color: '#111827' }}>9:41</Text>
-      </View>
-
-      <View style={{ paddingHorizontal: 24, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+      <View style={{ paddingHorizontal: 24, paddingTop: 16, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
         <Text style={{ fontFamily: 'DMSans_700Bold', fontSize: 24, color: '#111827' }}>Notifications</Text>
         <TouchableOpacity>
           <Text style={{ fontFamily: 'DMSans_500Medium', fontSize: 13, color: '#6B7280' }}>Clear all</Text>
@@ -82,6 +79,6 @@ export default function NotificationsScreen() {
         </View>
 
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

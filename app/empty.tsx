@@ -1,15 +1,12 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function EmptyScreen() {
   return (
-    <View className="flex-1 bg-app-bg">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F7F9F8' }}>
       <StatusBar style="dark" />
-
-      <View style={{ height: 44, justifyContent: 'center', paddingHorizontal: 24 }}>
-        <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 12, color: '#111827' }}>9:41</Text>
-      </View>
 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 28 }}>
         {/* Illustration */}
@@ -39,6 +36,6 @@ export default function EmptyScreen() {
           <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 14, color: '#6B7280' }}>Back to Home</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

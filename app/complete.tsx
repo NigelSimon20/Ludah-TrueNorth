@@ -1,10 +1,11 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function CompleteScreen() {
   return (
-    <View className="flex-1 bg-primary items-center justify-center">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#002920', alignItems: 'center', justifyContent: 'center' }}>
       <StatusBar style="light" />
 
       {/* Main content */}
@@ -54,6 +55,6 @@ export default function CompleteScreen() {
           <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>Review Lesson</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

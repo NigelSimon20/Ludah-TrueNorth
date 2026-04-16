@@ -2,24 +2,27 @@ import { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   const [actionDone, setActionDone] = useState(false);
 
+  const now = new Date();
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const dateLabel = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]}`;
+  const hour = now.getHours();
+  const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+
   return (
-    <View className="flex-1 bg-app-bg">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F7F9F8' }} edges={['top', 'left', 'right']}>
       <StatusBar style="dark" />
 
-      {/* Status bar row */}
-      <View style={{ height: 44, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 24 }}>
-        <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 12, color: '#111827' }}>9:41</Text>
-      </View>
-
       {/* Header */}
-      <View style={{ paddingHorizontal: 24, paddingBottom: 12, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+      <View style={{ paddingHorizontal: 24, paddingTop: 12, paddingBottom: 12, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
         <View>
-          <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 10, color: '#6B7280', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 2 }}>Monday, 30 March</Text>
-          <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 22, color: '#111827', lineHeight: 28 }}>Good morning, Tapiwa</Text>
+          <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 10, color: '#6B7280', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 2 }}>{dateLabel}</Text>
+          <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 22, color: '#111827', lineHeight: 28 }}>{greeting}, Tapiwa</Text>
           <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 14, color: '#6B7280', marginTop: 2 }}>Let's focus on today</Text>
         </View>
         <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: '#002920', alignItems: 'center', justifyContent: 'center' }}>
@@ -123,6 +126,6 @@ export default function HomeScreen() {
         </View>
 
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

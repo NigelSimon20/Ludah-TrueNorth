@@ -1,15 +1,13 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { CompassIcon } from '../../components/icons';
 
 export default function Step4() {
   return (
-    <View className="flex-1 bg-primary">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#002920' }}>
       <StatusBar style="light" />
-
-      {/* Status bar spacing */}
-      <View style={{ height: 48 }} />
 
       {/* Content */}
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 28 }}>
@@ -51,6 +49,6 @@ export default function Step4() {
           <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 14, color: 'rgba(255,255,255,0.4)' }}>I'll do this later</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

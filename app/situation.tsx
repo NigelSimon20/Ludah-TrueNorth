@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BackIcon } from '../components/icons';
 
 const steps = [
@@ -10,12 +11,13 @@ const steps = [
 ];
 
 export default function SituationScreen() {
+  const insets = useSafeAreaInsets();
   return (
-    <View className="flex-1 bg-white">
+    <View style={{ flex: 1, backgroundColor: '#fff' }}>
       <StatusBar style="light" />
 
       {/* Hero */}
-      <View style={{ backgroundColor: '#002920', paddingHorizontal: 24, paddingTop: 48, paddingBottom: 28 }}>
+      <View style={{ backgroundColor: '#002920', paddingHorizontal: 24, paddingTop: insets.top + 8, paddingBottom: 28 }}>
         <View style={{ height: 44, justifyContent: 'center' }}>
           <TouchableOpacity
             onPress={() => router.back()}
@@ -69,7 +71,7 @@ export default function SituationScreen() {
       </ScrollView>
 
       {/* CTA */}
-      <View style={{ paddingHorizontal: 24, paddingBottom: 36, paddingTop: 4 }}>
+      <View style={{ paddingHorizontal: 24, paddingBottom: insets.bottom + 20, paddingTop: 4 }}>
         <TouchableOpacity
           style={{ height: 52, backgroundColor: '#002920', borderRadius: 14, alignItems: 'center', justifyContent: 'center' }}
           onPress={() => router.push('/path-detail')}

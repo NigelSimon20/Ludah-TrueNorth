@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BackIcon, CheckIcon, LockIcon } from '../components/icons';
 
 const lessons = [
@@ -13,12 +14,13 @@ const lessons = [
 ];
 
 export default function PathDetailScreen() {
+  const insets = useSafeAreaInsets();
   return (
-    <View className="flex-1 bg-app-bg">
+    <View style={{ flex: 1, backgroundColor: '#F7F9F8' }}>
       <StatusBar style="light" />
 
       {/* Hero */}
-      <View style={{ backgroundColor: '#002920', paddingHorizontal: 24, paddingTop: 48, paddingBottom: 24 }}>
+      <View style={{ backgroundColor: '#002920', paddingHorizontal: 24, paddingTop: insets.top + 8, paddingBottom: 24 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', height: 44 }}>
           <TouchableOpacity
             onPress={() => router.back()}
@@ -101,7 +103,7 @@ export default function PathDetailScreen() {
       </ScrollView>
 
       {/* Continue CTA */}
-      <View style={{ paddingHorizontal: 16, paddingBottom: 24, paddingTop: 4 }}>
+      <View style={{ paddingHorizontal: 16, paddingBottom: insets.bottom + 12, paddingTop: 4 }}>
         <TouchableOpacity
           onPress={() => router.push('/lesson')}
           style={{ height: 52, backgroundColor: '#002920', borderRadius: 14, alignItems: 'center', justifyContent: 'center' }}

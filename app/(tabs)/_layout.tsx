@@ -1,5 +1,6 @@
 import { Tabs } from 'expo-router';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HomeIcon, GrowthIcon, ExploreIcon, ProgressBarIcon, ProfileIcon } from '../../components/icons';
 
 const TAB_ITEMS = [
@@ -11,8 +12,9 @@ const TAB_ITEMS = [
 ];
 
 function CustomTabBar({ state, navigation }: any) {
+  const insets = useSafeAreaInsets();
   return (
-    <View style={{ height: 72, backgroundColor: '#fff', borderTopWidth: 0.5, borderTopColor: '#E5E7EB', flexDirection: 'row', alignItems: 'flex-start', paddingTop: 8 }}>
+    <View style={{ height: 64 + insets.bottom, backgroundColor: '#fff', borderTopWidth: 0.5, borderTopColor: '#E5E7EB', flexDirection: 'row', alignItems: 'flex-start', paddingTop: 8, paddingBottom: insets.bottom }}>
       {TAB_ITEMS.map((tab, index) => {
         const focused = state.index === index;
         const Icon = tab.icon;
