@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -57,10 +57,12 @@ export default function WelcomeScreen() {
         >
           <Text style={{ fontFamily: 'DMSans_700Bold', fontSize: 15, color: '#002920' }}>Get Started</Text>
         </TouchableOpacity>
-        <Text style={{ fontFamily: 'DMSans_400Regular', textAlign: 'center', marginTop: 14, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
-          Already have an account?{' '}
-          <Text style={{ fontFamily: 'DMSans_600SemiBold', color: 'rgba(255,255,255,0.75)' }}>Sign in</Text>
-        </Text>
+        <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 14, alignItems: 'center' }}>
+          <Text style={{ fontFamily: 'DMSans_400Regular', fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>Already have an account? </Text>
+          <TouchableOpacity onPress={() => Alert.alert('Sign In', 'Sign in functionality coming soon.')}>
+            <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 13, color: 'rgba(255,255,255,0.75)' }}>Sign in</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );

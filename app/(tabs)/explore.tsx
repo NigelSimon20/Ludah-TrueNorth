@@ -51,6 +51,7 @@ export default function ExploreScreen() {
           {topics.map((topic) => (
             <TouchableOpacity
               key={topic}
+              onPress={() => router.push('/situation')}
               style={{ paddingHorizontal: 16, paddingVertical: 8, borderRadius: 20, borderWidth: 1.5, borderColor: '#E5E7EB', backgroundColor: '#fff' }}
               activeOpacity={0.85}
             >

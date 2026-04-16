@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -76,6 +76,7 @@ export default function GrowthScreen() {
 
         {/* Career Starter */}
         <TouchableOpacity
+          onPress={() => Alert.alert('Coming Soon', 'The Career Starter path is almost here. We\'ll notify you when it launches.')}
           style={{ backgroundColor: '#fff', borderRadius: 16, padding: 18, borderWidth: 0.5, borderColor: '#E5E7EB', marginBottom: 8, shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 8, shadowOffset: { width: 0, height: 2 } }}
           activeOpacity={0.85}
         >

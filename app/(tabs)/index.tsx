@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -119,7 +119,10 @@ export default function HomeScreen() {
             >
               <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 13, color: '#fff' }}>Yes, I did!</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ flex: 1, height: 40, borderRadius: 10, borderWidth: 1.5, borderColor: '#E5E7EB', alignItems: 'center', justifyContent: 'center' }}>
+            <TouchableOpacity
+              onPress={() => Alert.alert("That's okay", "Come back when you're ready. Small steps still count.")}
+              style={{ flex: 1, height: 40, borderRadius: 10, borderWidth: 1.5, borderColor: '#E5E7EB', alignItems: 'center', justifyContent: 'center' }}
+            >
               <Text style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 13, color: '#6B7280' }}>Not yet</Text>
             </TouchableOpacity>
           </View>
